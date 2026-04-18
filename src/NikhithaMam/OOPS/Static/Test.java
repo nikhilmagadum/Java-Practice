@@ -7,7 +7,6 @@ public class Test {
         System.out.println("Inside static block");
         a = 10;
         b = 20;
-        System.out.println(a);
     }
    static void fun1() {
         System.out.println("Inside static method..");
@@ -26,6 +25,14 @@ public class Test {
         System.out.println("Inside Constructor");
         x = 30;
         y = 40;
+    }
+}
 
+class Demo {
+    public static void main(String[] args) {
+        Test.fun1();  // class Loader loads the class Test
+
+        Test t = new Test();
+        t.fun2();
     }
 }
