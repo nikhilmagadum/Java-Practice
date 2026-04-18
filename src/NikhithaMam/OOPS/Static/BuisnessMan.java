@@ -47,6 +47,8 @@ class Day18 {
         b3.acceptInput();
         b3.calcInterest();
         b3.disp();
+
+        System.out.println("Hello checking ");
     }
 }
 
