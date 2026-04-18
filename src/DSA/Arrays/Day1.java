@@ -3,28 +3,18 @@ import java.util.Scanner;
 
 public class Day1 {
 
-    static void main() {
+    public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-//        System.out.println("enter the array size : ");
-//        int n =  sc.nextInt();
-
-        System.out.println("Enter The array elements : ");
-        int marks[] = new int[5];
-        int sum =  0;
-        for (int i = 0; i < marks.length; i++) {
+        int[] marks = new int[5];
+        // Basics of array how to declare,initialize and take user input using  for loop
+        System.out.println("Enter the Array elements : ");
+        for(int i = 0 ; i < marks.length; i++) {
             marks[i] = sc.nextInt();
-            sum =  sum + marks[i];
-
         }
-
-        System.out.println("The sum of the array elements are : " + sum );
-
-//
-//        System.out.println("The array elements after reversing the array are : ");
-//        for (int i = marks.length - 1; i >= 0; i--) {
-//            System.out.println(marks[i]);
-//        }
-
+        System.out.println("The array elements are : ");
+        for(int i = 0; i < marks.length; i++) {
+            System.out.println(marks[i]);
+        }
     }
 }
