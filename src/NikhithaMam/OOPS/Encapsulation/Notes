@@ -1,0 +1,27 @@
+package ReviseFolder;
+
+import java.util.Scanner;
+public class BankAccount {
+    private float bal;
+    String name;
+
+    public void setBalance(float b) {  // Setter method used to set the value
+        if (b >= 0) {   // To make it is accensible anywhere we use public
+            bal = b;
+        }
+    }
+    public float getBalance() {  // Simlaryly to get the value we use getter method
+         return bal;
+    }
+}
+class Day15 {
+    static void main(String[] args) {
+
+      BankAccount ba   = new BankAccount();
+      ba.setBalance(60000);
+
+      System.out.println(ba.getBalance());
+    }
+}
+
+Explain this code in this Interview if asked give an example and eloborate this stuff

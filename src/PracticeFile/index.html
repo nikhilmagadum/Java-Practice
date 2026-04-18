@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Travel Blog</title>
+
+    <style>
+        html {
+          scroll-behavior: smooth;
+        }
+
+        /* body {
+          background: linear-gradient(to right, #c5f0f0, #f3f6fb);
+        } */
+        body {
+          background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+        }
+
+        /* NAVBAR */
+        nav {
+          background: #333;
+          padding: 15px;
+          text-align: center;
+        }
+
+        nav a {
+          color: white;
+          margin: 0 15px;
+          text-decoration: none;
+          font-weight: bold;
+        }
+
+        nav a:hover {
+          color: #ffd700;
+        }
+
+        /* DROPDOWN */
+        .dropdown {
+          display: inline-block;
+          position: relative;
+        }
+
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background: #444;
+          min-width: 120px;
+        }
+
+        .dropdown-content a {
+          display: block;
+          padding: 10px;
+          color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+
+        /* SECTIONS */
+        /* section {
+          padding: 40px;
+          margin: 20px;
+          border-radius: 10px;
+          background: rgb(245, 246, 228);
+        } */
+        section {
+          padding: 40px;
+          margin: 20px;
+          border-radius: 15px;
+          background: #ffffff;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        h1 {
+          text-align: center;
+        }
+
+        /* BLOG */
+        .blog-layout {
+          display: flex;
+          gap: 20px;
+        }
+
+        .blog-container {
+          flex: 2;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .blog-card {
+          display: flex;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+          background: white;
+          transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+          transform: scale(1.03);
+        }
+
+        .blog-card img {
+          width: 300px;
+          height: 200px;
+          object-fit: cover;
+        }
+
+        .blog-content {
+          padding: 15px;
+        }
+
+        /* VIDEO */
+        .video {
+          flex: 1;
+          position: sticky;
+          top: 20px;
+        }
+
+        .video iframe {
+          width: 100%;
+          height: 300px;
+          border-radius: 10px;
+        }
+
+        /* GALLERY */
+        .gallery {
+          display: flex;
+          overflow-x: auto;
+          gap: 15px;
+        }
+
+        .gallery img, .gallery video {
+          width: 250px;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 10px;
+          flex-shrink: 0;
+          transition: transform 0.3s;
+        }
+
+        .gallery img:hover, .gallery video:hover {
+          transform: scale(1.1);
+        }
+
+        /* TABLE */
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        th {
+          background: #333;
+          color: white;
+          padding: 12px;
+        }
+
+        td {
+          padding: 12px;
+        }
+
+        tr:nth-child(even) {
+          background: #f9f9f9;
+        }
+
+        tr:hover {
+          background: #ffeaa7;
+          transition: 0.3s;
+        }
+
+        /* FORM */
+        .form-container {
+          padding: 25px;
+          border-radius: 15px;
+          max-width: 500px;
+          margin: auto;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+          transition: transform 0.3s;
+        }
+
+        .form-container:hover {
+          transform: translateY(-5px);
+        }
+
+        input, textarea, select {
+          width: 100%;
+          margin: 12px 0;
+          padding: 12px;
+          border-radius: 8px;
+          border: 1px solid #ccc;
+          outline: none;
+          transition: all 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+          border-color: #333;
+          box-shadow: 0 0 8px rgba(0,0,0,0.2);
+        }
+
+        button {
+          background: #333;
+          color: white;
+          padding: 12px;
+          border: none;
+          border-radius: 8px;
+          width: 100%;
+          transition: all 0.3s;
+        }
+
+        button:hover {
+          background: #555;
+          transform: scale(1.05);
+          cursor: pointer;
+        }
+
+        /* ANIMATION */
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .form-container, table {
+          animation: fadeInUp 0.8s ease;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+          .blog-layout {
+            flex-direction: column;
+          }
+
+          .blog-card {
+            flex-direction: column;
+          }
+
+          .blog-card img {
+            width: 100%;
+          }
+        }
+
+        /* LIST STYLE */
+        .cool-list {
+          list-style: none;
+          padding: 0;
+          width: 100%;
+          max-width: 600px;   /* 👈 bigger width */
+          margin: 30px auto;
+        }
+
+        .cool-list li {
+          background: linear-gradient(135deg, #ffffff, #f8f8f8);
+          margin: 15px 0;
+          padding: 16px 20px;
+          border-radius: 14px;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+          position: relative;
+          font-size: 16px;
+          font-weight: 500;
+          letter-spacing: 0.5px;
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
+
+        /* LEFT ACCENT BAR */
+        .cool-list li::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 15%;
+          height: 70%;
+          width: 6px;
+          border-radius: 10px;
+          background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+        }
+
+        /* LEFT COLOR BAR */
+        .cool-list li::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 5px;
+          background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+        }
+
+        .cool-list li:hover {
+          transform: translateX(12px) scale(1.03);
+          box-shadow: 0 12px 25px rgba(255, 126, 95, 0.4);
+          background: linear-gradient(to right, #fff, #fff3ec);
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#home">HOME</a>
+    <a href="#blog">BLOG</a>
+
+    <div class="dropdown">
+        <a href="#gallery">GALLERY ▼</a>
+        <div class="dropdown-content">
+            <a href="#gallery">Photos</a>
+            <a href="#gallery">Videos</a>
+        </div>
+    </div>
+
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+</nav>
+
+<section id="home">
+    <h1>Welcome to My Travel Blog</h1>
+    <p style="text-align:center;">I love traveling and exploring new places.</p>
+
+    <ul class="cool-list" style="text-align: left;">
+        <li>Bike Trips</li>
+        <li>Nature Exploration</li>
+        <li>Photography</li>
+    </ul>
+</section>
+
+<section id="blog" class="blog-layout">
+
+    <div class="blog-container">
+
+        <div class="blog-card">
+            <img src="marvanthe.jpeg">
+            <div class="blog-content">
+                <h2>Coastal Ride</h2>
+                <p>
+
+                    Riding along Karnataka’s coastline, where the ocean meets the road and every mile feels like freedom.
+                </p>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <img src="sak.jpeg">
+            <div class="blog-content">
+                <h2>Sakleshpura</h2>
+                <p>Nestled in the Western Ghats, Sakleshpur offers a peaceful escape surrounded by lush greenery and misty hills.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="video">
+        <iframe src="https://www.youtube.com/embed/c0DFgPNYLZ8"></iframe>
+    </div>
+
+</section>
+
+<section id="gallery">
+    <h1>Gallery</h1>
+
+    <div class="gallery">
+        <img src="Kab.jpeg" alt="">
+        <img src="Mirjan.jpeg" alt="">
+        <video controls autoplay loop muted>
+            <source src="V1.mp4" type="video/mp4">
+        </video>
+        <img src="mys.jpg">
+        <img src="TN.jpg" alt="">
+        <video controls autoplay loop muted>
+            <source src="Vsa.mp4" type="video/mp4">
+        </video>
+
+    </div>
+</section>
+
+<section>
+    <h1>Travel Table</h1>
+    <table>
+        <tr>
+            <th>Place</th>
+            <th>State</th>
+            <th>Best Time</th>
+        </tr>
+        <tr>
+            <td>Kalavathi</td>
+            <td>Tamil Nadu</td>
+            <td>Winter</td>
+        </tr>
+        <tr>
+            <td>Coorg</td>
+            <td>Karnataka</td>
+            <td>Monsoon</td>
+        </tr>
+    </table>
+</section>
+
+<section id="contact">
+    <h1>Suggestions</h1>
+    <div class="form-container">
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+
+            <select>
+                <option>Suggestion</option>
+                <option>Feedback</option>
+            </select>
+
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</section>
+
+<section id="about">
+    <h1>About Me</h1>
+    <p style="text-align:center;">I’m Nikhil. Developer by day, rider by weekend. Whether it’s the coastal curves of Maravanthe or the misty hills of Sakleshpur, I’m always chasing the next horizon. The best stories are found between the gears</p>
+</section>
+
+
+<footer>
+    <p style="text-align: center;">© 2026 Nikhil | Travel Blog</p>
+
+    <p style="text-align:center;">
+        <a href="https://www.instagram.com/YOUR_USERNAME" target="_blank" class="insta-link">
+
+            <!-- Instagram SVG Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm5 4a6 6 0 110 12 6 6 0 010-12zm0 2.2A3.8 3.8 0 1015.8 12 3.8 3.8 0 0012 8.2zM17.5 6.5a1 1 0 110 2 1 1 0 010-2z"/>
+            </svg>
+
+            Follow me on Instagram
+        </a>
+    </p>
+</footer>
+
+</body>
+</html>
