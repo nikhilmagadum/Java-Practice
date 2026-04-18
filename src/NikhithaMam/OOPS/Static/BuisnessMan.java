@@ -31,6 +31,8 @@ public class BuisnessMan {
 
 }
 
+// Methods which are having are instance variables make it as instance methods only
+// in encapsulation topic also getters and setters are always instance mthods only not static
 class Day18 {
     static void main(String[] args) {
         BuisnessMan b1 = new BuisnessMan();
