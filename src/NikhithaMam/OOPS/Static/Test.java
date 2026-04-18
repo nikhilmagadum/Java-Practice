@@ -1,18 +1,21 @@
 package NikhithaMam.OOPS.Static;
 
+
 public class Test {
-   static int a , b;
+    static int a, b;
 
     static {
         System.out.println("Inside static block");
         a = 10;
         b = 20;
-        System.out.println(a);
     }
-   static void fun1() {
+
+
+    static void fun1() {
         System.out.println("Inside static method..");
-   }
-    int x , y;
+    }
+
+    int x, y;
 
     {
         System.out.println("Inside Instance Block");
@@ -22,10 +25,18 @@ public class Test {
         System.out.println("Inside instance Method..");
     }
 
-    public Test(){
+    public Test() {
         System.out.println("Inside Constructor");
         x = 30;
         y = 40;
+    }
+}
 
+class Demo {
+    public static void main(String[] args) {
+        Test.fun1();  // class Loader loads the class Test
+
+        Test t = new Test();
+        t.fun2();
     }
 }
