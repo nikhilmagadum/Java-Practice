@@ -18,3 +18,5 @@ public class D1 {
         }
     }
 }
+
+// Basic array how to take  input and output
