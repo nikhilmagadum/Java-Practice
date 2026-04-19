@@ -1,4 +1,4 @@
-package DSA.Arrays;
+package DSA.KK.Arrays;
 import java.util.Scanner;
 public class ThreeD {
     static void main(String[] args) {
