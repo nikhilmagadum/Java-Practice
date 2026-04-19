@@ -10,7 +10,6 @@ public class Test {
         b = 20;
     }
 
-
     static void fun1() {
         System.out.println("Inside static method..");
     }
@@ -20,7 +19,6 @@ public class Test {
     {
         System.out.println("Inside Instance Block");
     }
-
     void fun2() {
         System.out.println("Inside instance Method..");
     }
@@ -31,7 +29,6 @@ public class Test {
         y = 40;
     }
 }
-
 class Demo {
     public static void main(String[] args) {
         Test.fun1();  // class Loader loads the class Test
