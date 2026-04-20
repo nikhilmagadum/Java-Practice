@@ -13,6 +13,8 @@ public class ReverseArray {
         for(int i = 0; i < arr.length; i++) {
             arr[i] = scanner.nextInt();
         }
+
+
         // TODO: Print the original array
         System.out.print("Original array: [");
         for(int i = 0; i < arr.length; i++) {
