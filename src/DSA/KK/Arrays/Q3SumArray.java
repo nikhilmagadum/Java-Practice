@@ -13,7 +13,7 @@ public class Q3SumArray {
         for(int i = 0; i <ar.length;i++) {
             ar[i] = sc.nextInt();
 
-            sum = sum + ar[i];
+            sum = sum + ar[i];  // Logic for Sum of array elements
         }
         System.out.println("The sum of Array are: " + sum);
     }
