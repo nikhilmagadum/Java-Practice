@@ -1,0 +1,89 @@
+🔗 What is Coupling?
+
+Coupling = how strongly two classes depend on each other
+
+If one class change → affects another → high coupling (bad)
+If classes are independent → low coupling (good)
+🔴 Tight Coupling (Bad Design)
+
+👉 One class is directly dependent on another class
+
+Example:
+class Engine {
+    void start() {
+        System.out.println("Engine started");
+    }
+}
+
+class Car {
+    Engine e = new Engine();   // tightly coupled
+
+    void drive() {
+        e.start();
+        System.out.println("Car is driving");
+    }
+}
+❌ Problem Here
+Car is directly tied to Engine
+If you change Engine → Car breaks
+Cannot reuse Car easily
+
+👉 No flexibility
+
+🟢 Loose Coupling (Good Design)
+
+👉 We reduce dependency using abstraction (interface or abstract class)
+
+Example Using Interface
+interface Engine {
+    void start();
+}
+class PetrolEngine implements Engine {
+    public void start() {
+        System.out.println("Petrol Engine started");
+    }
+}
+class ElectricEngine implements Engine {
+    public void start() {
+        System.out.println("Electric Engine started");
+    }
+}
+Car Class (Now Flexible)
+class Car {
+    Engine e;
+
+    Car(Engine e) {   // dependency injection
+        this.e = e;
+    }
+
+    void drive() {
+        e.start();
+        System.out.println("Car is driving");
+    }
+}
+Usage
+public class Main {
+    public static void main(String[] args) {
+        Engine e = new ElectricEngine();
+        Car c = new Car(e);
+
+        c.drive();
+    }
+}
+💥 Why This is Powerful
+
+Now you can switch engines easily:
+
+Engine e = new PetrolEngine();   // change here only
+
+👉 Car doesn’t care what engine it gets
+
+🧠 Core Difference
+Tight Coupling	Loose Coupling
+Direct dependency	Uses abstraction
+Hard to change	Easy to change
+Less reusable	More reusable
+Rigid design	Flexible design
+🔥 Real Interview Line (Remember This)
+
+👉 “Loose coupling is achieved using abstraction and dependency injection

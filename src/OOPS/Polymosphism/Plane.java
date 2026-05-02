@@ -13,6 +13,11 @@ class CargoPlane extends Plane {
     public void fly() {
         System.out.println("Cargo Plane is flying at a lower height...");
     }
+
+    public void carryCargo() {
+        System.out.println("Cargo Plane is Carrying a Cargoo..");
+    }
+
 }
 
 class PassengerPlane extends Plane {
@@ -22,12 +27,20 @@ class PassengerPlane extends Plane {
         System.out.println("Passenger Plane is flying at Greater height...");
     }
 
+    public void carryPassenger() {
+        System.out.println("Passenger Plane is carrying ...");
+    }
+
 }
 
 class FighterPlane extends Plane {
     @Override
     public void fly() {
         System.out.println("Fighter Plane is flying with carrying weapons...");
+    }
+
+    public void carryWeapons() {
+        System.out.println("Fighter Plane is carrying weapons...");
     }
 }
 
@@ -50,12 +63,15 @@ class Poly {
 
         ref = cp;
         ref.fly();
+       // ref.carryCargo();
 
         ref = pp;
         ref.fly();
+        //ref.carryPassenger();
 
         ref = fp;
-        ref.fly();
+        ref.fly();  // we can call only overridden methods
+       // ref.carryWeapons();  you cannot call specialized methods
 //        cp.fly();
 //        pp.fly();
 //        fp.fly();

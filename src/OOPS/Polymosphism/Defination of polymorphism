@@ -1,0 +1,101 @@
+Polymorphism in Java is one of the core concepts in object-oriented programming (OOP) that allows objects to behave differently based on their specific class type. The word polymorphism means having many forms, and it comes from the Greek words poly (many) and morph (forms). This means one entity can take many forms.
+
+Multiple Behaviors: The same method can behave differently depending on the object that calls this method.
+Method Overriding: A child class can redefine a method of its parent class.
+Method Overloading: We can define multiple methods with the same name but different parameters.
+Runtime Decision: At runtime, Java determines which method to call depending on the object's actual class.
+
+🎭 What is Polymorphism (Simple Meaning)
+
+Polymorphism = One thing → Many forms
+
+In Java:
+👉 Same method name
+👉 Different behavior
+
+🧠 Real-Life Analogy
+
+Think of a person:
+
+At home → son
+At college → student
+At gym → trainee
+
+👉 Same person, different behavior
+That’s polymorphism.
+
+🔥 Two Types in Java
+1. Compile-Time Polymorphism (Method Overloading)
+
+👉 Same method name, different parameters
+
+class MathUtil {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+👉 What’s happening?
+Method name = same (add)
+Behavior = different
+2. Runtime Polymorphism (Method Overriding) ⭐ IMPORTANT
+
+👉 Happens with inheritance
+
+class Animal {
+    void sound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+🔍 Usage
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Dog();  // important line
+
+        a.sound();
+    }
+}
+💥 THIS LINE IS THE HEART OF POLYMORPHISM
+Animal a = new Dog();
+
+👉 Reference type = Animal
+👉 Object type = Dog
+
+So:
+
+Java decides method at runtime
+Calls Dog’s version
+🧠 Why This Works
+
+Because of method overriding
+
+👉 Child class replaces parent method behavior
+
+⚠️ Common Confusion (Clear This)
+
+❌ This is NOT polymorphism:
+
+Dog d = new Dog();
+d.sound();
+
+👉 This is normal method call
+
+✅ This IS polymorphism:
+Animal a = new Dog();
+a.sound();
+
+👉 Different behavior based on object
+
+🔥 Key Difference Summary
+Type	When	How
+Overloading	Compile time	Same method, different params
+Overriding	Runtime	Same method, child changes behavior
