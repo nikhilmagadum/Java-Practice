@@ -6,12 +6,14 @@ public class Q6MaximumElementArray {
    public static int maximum(int[] ar) {
 //       int max = 0;
        int max = ar[0];
+       int index = 0;
         for(int i = 0; i < ar.length;i++) {
             if(ar[i] > max) {
                 max = ar[i];
+                index = i;
             }
         }
-       return max;
+       return index;
     }
 
     public static void main(String[] args) {
@@ -28,6 +30,7 @@ public class Q6MaximumElementArray {
 
         int Maximum_value = maximum(ar);
         System.out.println(Maximum_value);
+
 
     }
 }
