@@ -29,6 +29,13 @@ class Mobile {
    public Mobile() {
         os = new OS("Lollipop" ,423.11f);
     }
+
+    // Aggregation is achieved by setters methods
+    public void setCharger(Charger charger) {
+       this.charger = charger;
+    }
+
+
 }
 
 class Main {
@@ -38,8 +45,14 @@ class Main {
         System.out.println(MyMobile.os.name);
         System.out.println(MyMobile.os.size);
 
-//        System.out.println(MyMobile.charger.brand);  // it will give Null pointer exception here
-        System.out.println(MyMobile.charger);  // it will  print default values which is null
+
+       Charger myCharger  =  new Charger("mi",40.2f);
+
+        System.out.println(myCharger.brand);
+        System.out.println(myCharger.voltage);
+
+        MyMobile.setCharger(myCharger);
+
     }
 }
 
